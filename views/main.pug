@@ -1,0 +1,145 @@
+extends base
+block content
+  #colorlib-main
+    section.ftco-section.ftco-no-pt.ftco-no-pb
+      .container
+        .row.d-flex
+          .col-xl-8.py-5.px-md-5
+            .row.pt-md-4
+              each post in posts
+                .col-md-12
+                  .blog-entry.ftco-animate.d-md-flex
+                    a.img.img-2(href=`/post/${post.url}`, style=`background-image: url(images/${post.Image});`)
+                    .text.text-2.pl-md-4
+                      h3.mb-2
+                        a(href=`/post/${post.url}`)=post.Name
+                      .meta-wrap
+                        p.meta
+                          span
+                            i.icon-calendar.mr-2
+                            |
+                            span= post.publishDate.toLocaleString('en-us', {month: 'long', year: 'numeric'})
+                          span
+                            a(href=`/post/${post.url}`)
+                              i.icon-folder-o.mr-2
+                              |
+                              span=post.category
+                          span
+                            i.icon-comment2.mr-2
+                            |
+                            span=`${post.comments.length} Comment`
+                          span
+                            i.icon-star-half-full.mr-2
+                            |
+                            span=post.ratingsAverage
+                      p.mb-4
+                        span=post.description
+                      p
+                        a.btn-custom(href=`/post/${post.url}`)
+                          | Read More
+                          span.ion-ios-arrow-forward
+          .col-xl-4.sidebar.ftco-animate.bg-light.pt-5
+            .sidebar-box.pt-md-4
+              form.search-form(action='#')
+                .form-group
+                  span.icon.icon-search
+                  input.form-control(type='text', placeholder='Type a keyword and hit enter')
+            .sidebar-box.ftco-animate
+              h3.sidebar-heading Categories
+              ul.categories
+                li
+                  a(href='#')
+                    | Sharepoint 
+                    span (6)
+                li
+                  a(href='#')
+                    | Node
+                    span (8)
+                li
+                  a(href='#')
+                    | React.js 
+                    span (2)
+                li
+                  a(href='#')
+                    | MERN 
+                    span (2)
+            .sidebar-box.ftco-animate
+              h3.sidebar-heading Popular Articles
+              .block-21.mb-4.d-flex
+                a.blog-img.mr-4(style='background-image: url(images/image_1.jpg);')
+                .text
+                  h3.heading
+                    a(href='#') Even the all-powerful Pointing has no control
+                  .meta
+                    div
+                      a(href='#')
+                        span.icon-calendar
+                        |  June 28,
+                        |                             2019
+                    div
+                      a(href='#')
+                        span.icon-person
+                        |  Dave Lewis
+                    div
+                      a(href='#')
+                        span.icon-chat
+                        |  19
+              .block-21.mb-4.d-flex
+                a.blog-img.mr-4(style='background-image: url(images/image_2.jpg);')
+                .text
+                  h3.heading
+                    a(href='#') Even the all-powerful Pointing has no control
+                  .meta
+                    div
+                      a(href='#')
+                        span.icon-calendar
+                        |  June 28,
+                        |                             2019
+                    div
+                      a(href='#')
+                        span.icon-person
+                        |  Dave Lewis
+                    div
+                      a(href='#')
+                        span.icon-chat
+                        |  19
+              .block-21.mb-4.d-flex
+                a.blog-img.mr-4(style='background-image: url(images/image_3.jpg);')
+                .text
+                  h3.heading
+                    a(href='#') Even the all-powerful Pointing has no control
+                  .meta
+                    div
+                      a(href='#')
+                        span.icon-calendar
+                        |  June 28,
+                        |                             2019
+                    div
+                      a(href='#')
+                        span.icon-person
+                        |  Dave Lewis
+                    div
+                      a(href='#')
+                        span.icon-chat
+                        |  19
+            .sidebar-box.ftco-animate
+              h3.sidebar-heading Tag Cloud
+              ul.tagcloud
+                a.tag-cloud-link(href='#') animals
+                a.tag-cloud-link(href='#') human
+                a.tag-cloud-link(href='#') people
+                a.tag-cloud-link(href='#') cat
+                a.tag-cloud-link(href='#') dog
+                a.tag-cloud-link(href='#') nature
+                a.tag-cloud-link(href='#') leaves
+                a.tag-cloud-link(href='#') food
+            .sidebar-box.subs-wrap.img.py-4(style='background-image: url(images/bg_1.jpg);')
+              .overlay
+              h3.mb-4.sidebar-heading Newsletter
+              p.mb-4
+                | Far far away, behind the word mountains, far from the
+                | countries Vokalia
+              form.subscribe-form(action='#')
+                .form-group
+                  input.form-control(type='text', placeholder='Email Address')
+                  input.mt-2.btn.btn-white.submit(type='submit', value='Subscribe')

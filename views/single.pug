@@ -1,0 +1,156 @@
+extends base
+block content
+  #colorlib-main
+    section.ftco-section.ftco-no-pt.ftco-no-pb
+      .container
+        .row.d-flex
+          .col-lg-8.px-md-5.py-5
+            .row.pt-md-4
+              .rtlF
+                h1.mb-3=post.Name
+                img.img-fluid.p-4(src=`/images/${post.Image}`)
+                p=post.Content
+                .tag-widget.post-tag-container.mb-5.mt-5
+                  .tagcloud
+                    each tag in post.tags
+                      a.tag-cloud-link(href='#')=tag
+              .about-author.d-flex.p-4.bg-light
+                .bio.mr-5
+                  img.img-fluid.mb-4(src='/images/person_1.jpg', alt='Image placeholder')
+                .desc
+                  h3 Amir Kazemi
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing
+                    | elit. Ducimus itaque, autem necessitatibus voluptate
+                    
+              .pt-5.mt-5
+                h3.mb-5.font-weight-bold= `${post.comments.length} Comments`
+                ul.comment-list
+                  each cm in post.comments
+                    li.comment
+                      .vcard.bio
+                        img(src='/images/user.png', alt='Image placeholder')
+                      .comment-body
+                        h3=cm.name
+                        - const date = cm.date.toLocaleString('en-us', {day:'2-digit',month: 'long', year: 'numeric'})
+                        .meta=date
+                        p=cm.content
+                // END comment-list
+                .comment-form-wrap.pt-5
+                  h3.mb-5 Leave a comment
+                  form.p-3.p-md-5.bg-light(id="CommentForm")
+                    .form-group
+                      label(for='name') Name *
+                      input#name.form-control(type='text')
+                    .form-group
+                      label(for='message') Message
+                      textarea#message.form-control(name='', cols='30', rows='10')
+                    .form-group
+                      input.btn.py-3.px-4.btn-primary(type='submit', value='Post Comment',data=post._id)
+            // END
+          //-Right navigation
+          .col-xl-4.sidebar.ftco-animate.bg-light.pt-5
+            .sidebar-box.pt-md-4
+              form.search-form(action='#')
+                .form-group
+                  span.icon.icon-search
+                  input.form-control(type='text', placeholder='Type a keyword and hit enter')
+            .sidebar-box.ftco-animate
+              h3.sidebar-heading Categories
+              ul.categories
+                li
+                  a(href='#')
+                    | Sharepoint 
+                    span (6)
+                li
+                  a(href='#')
+                    | Node
+                    span (8)
+                li
+                  a(href='#')
+                    | React.js 
+                    span (2)
+                li
+                  a(href='#')
+                    | MERN 
+                    span (2)
+            .sidebar-box.ftco-animate
+              h3.sidebar-heading Popular Articles
+              .block-21.mb-4.d-flex
+                a.blog-img.mr-4(style='background-image: url(/images/image_1.jpg);')
+                .text
+                  h3.heading
+                    a(href='#') Even the all-powerful Pointing has no control
+                  .meta
+                    div
+                      a(href='#')
+                        span.icon-calendar
+                        |  June 28,
+                        |                             2019
+                    div
+                      a(href='#')
+                        span.icon-person
+                        |  Dave Lewis
+                    div
+                      a(href='#')
+                        span.icon-chat
+                        |  19
+              .block-21.mb-4.d-flex
+                a.blog-img.mr-4(style='background-image: url(/images/image_2.jpg);')
+                .text
+                  h3.heading
+                    a(href='#') Even the all-powerful Pointing has no control
+                  .meta
+                    div
+                      a(href='#')
+                        span.icon-calendar
+                        |  June 28,
+                        |                             2019
+                    div
+                      a(href='#')
+                        span.icon-person
+                        |  Dave Lewis
+                    div
+                      a(href='#')
+                        span.icon-chat
+                        |  19
+              .block-21.mb-4.d-flex
+                a.blog-img.mr-4(style='background-image: url(/images/image_3.jpg);')
+                .text
+                  h3.heading
+                    a(href='#') Even the all-powerful Pointing has no control
+                  .meta
+                    div
+                      a(href='#')
+                        span.icon-calendar
+                        |  June 28,
+                        |                             2019
+                    div
+                      a(href='#')
+                        span.icon-person
+                        |  Dave Lewis
+                    div
+                      a(href='#')
+                        span.icon-chat
+                        |  19
+            .sidebar-box.ftco-animate
+              h3.sidebar-heading Tag Cloud
+              ul.tagcloud
+                a.tag-cloud-link(href='#') animals
+                a.tag-cloud-link(href='#') human
+                a.tag-cloud-link(href='#') people
+                a.tag-cloud-link(href='#') cat
+                a.tag-cloud-link(href='#') dog
+                a.tag-cloud-link(href='#') nature
+                a.tag-cloud-link(href='#') leaves
+                a.tag-cloud-link(href='#') food
+            .sidebar-box.subs-wrap.img.py-4(style='background-image: url(/images/bg_1.jpg);')
+              .overlay
+              h3.mb-4.sidebar-heading Newsletter
+              p.mb-4
+                | Far far away, behind the word mountains, far from the
+                | countries Vokalia
+              form.subscribe-form(action='#')
+                .form-group
+                  input.form-control(type='text', placeholder='Email Address')
+                  input.mt-2.btn.btn-white.submit(type='submit', value='Subscribe')
